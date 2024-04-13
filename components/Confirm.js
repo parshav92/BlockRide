@@ -43,7 +43,7 @@ const Confirm = () => {
         params: [
           {
             from: currentAccount,
-            to: process.env.NEXT_PUBLIC_UBER_ADDRESS,
+            to: "0x9Ced2ef5921d9B6448424605Fa27BD7f265cD6AE",
             gas: '0x7EF40', // 520000 Gwei
             value: ethers.utils.parseEther(price)._hex,
           },
@@ -65,7 +65,7 @@ const Confirm = () => {
             className={style.confirmButton}
             onClick={() => storeTripDetails(pickup, dropoff)}
           >
-            Confirm {selectedRide.service || 'UberX'}
+            Confirm {selectedRide.service || 'Blockto'}
           </div>
         </div>
       </div>

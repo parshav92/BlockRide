@@ -18,11 +18,13 @@ export default function Home() {
       <div className={style.main}>
         <Map />
       </div>
+      <div className=''>
       <div className={style.rideRequestContainer}>
         <div className={style.rideRequest}>
           <LocationSelector />
           <Confirm />
         </div>
+      </div>
       </div>
     </div>
   )
