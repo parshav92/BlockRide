@@ -1,21 +1,19 @@
-import IntWallet from "@/components/IntWallet";
-import Rewards from "@/components/Rewards";
-import Traffictoast from "@/components/Traffictoast";
-import TransactionsPage from "@/components/Transac";
-import Image from "next/image";
+import { Stepper } from "@mui/material";
+import IntWallet from "../components/IntWallet";
+import Traffictoast from "../components/Traffictoast";
+// import Image from "next/image";
+import ProfileDropdown from "@/components/ProfileDropdown";
+import VerticalLinearStepper from "../components/Stepper";
 
 export default function Home() {
   return (
-   <>
-   <div>
-    {/* <Traffictoast/>
-     */}
-     {/* <IntWallet/>
-      */}
-      {/* <Rewards/>
-       */}
-       <TransactionsPage/>
-   </div>
-   </>
+    <>
+      <div>
+        {/* <ProfileDropdown /> */}
+        {/* <Traffictoast /> */}
+        <VerticalLinearStepper />
+        <IntWallet />
+      </div>
+    </>
   );
 }

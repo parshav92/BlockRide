@@ -34,43 +34,47 @@ export default function HoverRating() {
   };
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center h-screen ">
       <Slide direction="up" in={open} mountOnEnter unmountOnExit>
-        <Card className="bg-blue-100 border border-blue-400 h-50 rounded-lg shadow-md">
-          <CardContent>
-            <Box
-              sx={{
-                width: 200,
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              {/* Rating component */}
-              <Rating
-                name="hover-feedback"
-                value={value}
-                precision={0.5}
-                getLabelText={getLabelText}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
+        <div className="flex justify-center">
+          <Card className="bg-blue-100 border border-blue-400 mb-4 rounded-lg shadow-md w-full max-w-sm">
+            <CardContent>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
-                onChangeActive={(event, newHover) => {
-                  setHover(newHover);
-                }}
-                emptyIcon={
-                  <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
-                }
-              />
-              {value !== null && (
-                <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
-              )}
-            </Box>
-          </CardContent>
-        </Card>
+              >
+                <Rating
+                  name="hover-feedback"
+                  value={value}
+                  precision={0.5}
+                  getLabelText={getLabelText}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
+                  onChangeActive={(event, newHover) => {
+                    setHover(newHover);
+                  }}
+                  emptyIcon={
+                    <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                  }
+                />
+                {value !== null && (
+                  <Box sx={{ ml: 2 }}>
+                    {labels[hover !== -1 ? hover : value]}
+                  </Box>
+                )}
+              </Box>
+            </CardContent>
+          </Card>
+        </div>
       </Slide>
-      <button onClick={toggleCard} className="bg-gray-300 flex">
+      <button onClick={toggleCard} className="bg-gray-300 px-4 py-2 rounded-md">
         Rate Now
       </button>
-    </>
+    </div>
   );
 }
