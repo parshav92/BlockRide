@@ -7,7 +7,7 @@ const style = {
   wrapper: `h-screen w-screen flex flex-col`,
   main: `h-full w-screen flex-1 z-10`,
   mapContainer: `flex-1 w-full h-full`,
-  rideRequestContainer: `md:h-full sm:h-inherit w-[400px] ml-[1rem] py-[3rem] absolute top-10  left-0 flex flex-col justify-end z-20`,
+  rideRequestContainer: `sm:h-inherit w-[400px] ml-[1rem] py-[3rem] absolute top-10  left-0 flex flex-col justify-end z-20`,
   rideRequest: `h-full max-h-[700px] bg-white rounded-lg flex flex-col overflow-scroll`,
 };
 
