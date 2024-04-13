@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.traffic-info-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Add backdrop blur */
+  }
+  
+  /* Additional styling for traffic status indicators */
+  .traffic-info-box p {
+    margin: 5px 0;
+  }
+  
+  .traffic-info-box strong {
+    font-weight: bold;
+  }
+  
+  /* Define traffic status colors */
+  .status-green {
+    color: #1a9850; /* Green color for less traffic */
+  }
+  
+  .status-yellow {
+    color: #fee08b; /* Yellow color for mid traffic */
+  }
+  
+  .status-red {
+    color: #ff5050; /* Red color for more traffic */
+  }
+  
