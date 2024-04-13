@@ -45,7 +45,7 @@ export const UberProvider = ({ children }) => {
         })
 
         const data = await response.json()
-        setBasePrice(Math.round(await data.data))
+        setBasePrice(Math.round(await data.data * 0.15))
       } catch (error) {
         console.error(error)
       }
