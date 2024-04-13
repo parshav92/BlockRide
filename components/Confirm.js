@@ -1,5 +1,5 @@
 import RideSelector from './RideSelector'
-import { useContext } from 'react'
+import { useContext ,useState , useEffect } from 'react'
 import { UberContext } from '../context/uberContext'
 import { ethers } from 'ethers'
 
@@ -21,7 +21,7 @@ const Confirm = () => {
     dropoffCoordinates,
     metamask,
   } = useContext(UberContext)
-
+  const [bookingConfirmed, setBookingConfirmed] = useState(false)
   const storeTripDetails = async (pickup, dropoff) => {
     try {
       await fetch('/api/db/saveTrips', {
@@ -49,10 +49,21 @@ const Confirm = () => {
           },
         ],
       })
+
+
+      setBookingConfirmed(true)
     } catch (error) {
       console.error(error)
     }
   }
+  useEffect(() => {
+    if (bookingConfirmed) {
+      // Display the alert
+      alert('Booking confirmed. Please rate the Uber driver and route.')
+      // Reset the booking confirmation state after displaying the alert
+      setBookingConfirmed(false)
+    }
+  }, [bookingConfirmed])
 
   return (
     <div className={style.wrapper}>

@@ -17,7 +17,7 @@ const style = {
 }
 
 const Navbar = () => {
-  const { currentAccount, connectWallet, currentUser } = useContext(UberContext)
+  const { currentAccount, connectWallet, currentUser ,logout  } = useContext(UberContext)
 
   return (
     <div className={style.wrapper}>
@@ -41,6 +41,7 @@ const Navbar = () => {
         {currentAccount ? (
           <div>
             {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
+            <button className='ml-10' onClick={logout}>Logout</button>
           </div>
         ) : (
           <div className={style.loginButton} onClick={() => connectWallet()}>

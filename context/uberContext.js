@@ -45,7 +45,7 @@ export const UberProvider = ({ children }) => {
         })
 
         const data = await response.json()
-        setBasePrice(Math.round(await data.data * 0.15))
+        setBasePrice(Math.round(await data.data * 0.015))
       } catch (error) {
         console.error(error)
       }
@@ -160,7 +160,11 @@ export const UberProvider = ({ children }) => {
       console.error(error)
     }
   }
-
+  const logout = () => {
+    setCurrentAccount(null)
+    setCurrentUser([])
+    // Add any additional logout logic here, such as clearing tokens or cookies
+  }
   return (
     <UberContext.Provider
       value={{
@@ -181,6 +185,7 @@ export const UberProvider = ({ children }) => {
         setPrice,
         basePrice,
         metamask,
+        logout,
       }}
     >
       {children}
