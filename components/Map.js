@@ -15,7 +15,7 @@ const style = {
   },
 }
 
-
+mapboxgl.accessToken = process.env.MAP_API;
 
 
 const Map = () => {

@@ -1,5 +1,7 @@
 import IntWallet from "@/components/IntWallet";
+import Rewards from "@/components/Rewards";
 import Traffictoast from "@/components/Traffictoast";
+import TransactionsPage from "@/components/Transac";
 import Image from "next/image";
 
 export default function Home() {
@@ -8,7 +10,11 @@ export default function Home() {
    <div>
     {/* <Traffictoast/>
      */}
-     <IntWallet/>
+     {/* <IntWallet/>
+      */}
+      {/* <Rewards/>
+       */}
+       <TransactionsPage/>
    </div>
    </>
   );
