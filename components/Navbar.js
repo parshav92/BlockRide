@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 import Image from 'next/image'
 import avatar from '../temp/avatar.jpg'
 import { BsPerson } from 'react-icons/bs'
