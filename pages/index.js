@@ -21,7 +21,7 @@ export default function Home() {
       <div className="">
         <div className={style.rideRequestContainer}>
           <div className={style.rideRequest}>
-            <LocationSelector />
+            <LocationSelector />                  
             <Confirm />
           </div>
         </div>

@@ -28,6 +28,14 @@ export const UberProvider = ({ children }) => {
     if (!currentAccount) return
     requestToGetCurrentUsersInfo(currentAccount)
   }, [currentAccount])
+  useEffect(() => {
+    if (pickup) {
+      sessionStorage.setItem('pickup', pickup);
+    }
+    if (dropoff) {
+      sessionStorage.setItem('dropoff', dropoff);
+    }
+  }, [pickup, dropoff]);
 
   useEffect(() => {
     if (!pickupCoordinates || !dropoffCoordinates) return
@@ -129,6 +137,15 @@ export const UberProvider = ({ children }) => {
       })()
     } else return
   }, [pickup, dropoff])
+
+  useEffect(() => {
+    if (pickupCoordinates) {
+      localStorage.setItem('pickupCoordinates', JSON.stringify(pickupCoordinates))
+    }
+    if (dropoffCoordinates) {
+      localStorage.setItem('dropoffCoordinates', JSON.stringify(dropoffCoordinates))
+    }
+  }, [pickupCoordinates, dropoffCoordinates])
 
   const requestToCreateUserOnSanity = async address => {
     if (!window.ethereum) return
