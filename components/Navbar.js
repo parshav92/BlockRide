@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 import Image from 'next/image'
 import avatar from '../temp/avatar.jpg'
 import { BsPerson } from 'react-icons/bs'
@@ -16,9 +5,9 @@ import { useContext } from 'react'
 import { UberContext } from '../context/uberContext'
 
 const style = {
-  wrapper: `h-16 w-full bg-black text-white flex md:justify-around items-center px-60 fixed z-20`,
+  wrapper: `h-16 w-screen bg-black text-white flex md:justify-around items-center fixed z-20`,
   leftMenu: `flex gap-3`,
-  logo: `text-3xl text-white flex cursor-pointer mr-16`,
+  logo: `text-3xl text-white flex cursor-pointer mr-auto`,
   menuItem: `text-lg text-white font-medium flex items-center mx-4 cursor-pointer`,
   rightMenu: `flex gap-3 items-center`,
   userImageContainer: `mr-2`,
@@ -31,36 +20,62 @@ const Navbar = () => {
   const { currentAccount, connectWallet, currentUser ,logout  } = useContext(UberContext)
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.leftMenu}>
-        <div className={style.logo}>BlockRide</div>
-        <div className={style.menuItem}>Ride</div>
-        <div className={style.menuItem}>Drive</div>
-        <div className={style.menuItem}>More</div>
+    // <div className={style.wrapper}>
+    //   <div className={style.leftMenu}>
+    //     <div className={style.logo}>BlockRide</div>
+    //     <div className={style.menuItem}>Ride</div>
+    //     <div className={style.menuItem}>Drive</div>
+    //     <div className={style.menuItem}>More</div>
+    //   </div>
+    //   <div className={style.rightMenu}>
+    //     <div className={style.menuItem}>Help</div>
+        // <div className='flex flex-row ml-auto gap-8'>
+        //   <div className="">{currentUser?.name?.split(' ')[0]}</div>
+        //     <Image
+        //       className={style.userImage}
+        //       src={avatar}
+        //       width={40}
+        //       height={40}
+        //     />
+        //   </div>
+        //   {currentAccount ? (
+        //     <div>
+        //       {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
+        //       <button className='ml-10' onClick={logout}>Logout</button>
+        //     </div>
+        //   ) : (
+        //     <div className={style.loginButton} onClick={() => connectWallet()}>
+        //       <BsPerson />
+        //       <span className={style.loginText}>Log in</span>
+        //     </div>
+        //   )}
+        // </div>
+    // </div>
+
+    <div className='bg-black w-[150%] lg:w-full p-4 flex md:flex-row justify-around'> 
+      <div className='text-gray-200 font-semibold text-2xl'>
+        BlockRide
       </div>
-      <div className={style.rightMenu}>
-        <div className={style.menuItem}>Help</div>
-        <div className={style.menuItem}>{currentUser?.name?.split(' ')[0]}</div>
-        <div className={style.userImageContainer}>
-          <Image
-            className={style.userImage}
-            src={avatar}
-            width={40}
-            height={40}
-          />
-        </div>
-        {currentAccount ? (
-          <div>
-            {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
-            <button className='ml-10' onClick={logout}>Logout</button>
+      <div className='flex flex-row ml-auto'>
           </div>
-        ) : (
-          <div className={style.loginButton} onClick={() => connectWallet()}>
-            <BsPerson />
-            <span className={style.loginText}>Log in</span>
-          </div>
-        )}
-      </div>
+          {currentAccount ? (
+            <div className='text-white'>
+              {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
+              <button className='text-white mx-4 bg-stone-800 px-4 py-2 rounded-xl' onClick={logout}>Logout</button>
+            </div>
+          ) : (
+            <div className="text-white flex flex-row gap-2 mr-4 bg-stone-800 px-4 rounded-xl py-2" onClick={() => connectWallet()}>
+              <BsPerson className='mt-0.5 h-5 w-5' />
+              <span className="text-base font-semibold">Log in</span>
+            </div>
+          )}
+           <div className="">{currentUser?.name?.split(' ')[0]}</div>
+            <Image
+              className="rounded-full"
+              src={avatar}
+              width={40}
+              height={12}
+            />
     </div>
   )
 }
