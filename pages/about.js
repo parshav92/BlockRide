@@ -1,5 +1,6 @@
 
 import Map from '../components/Map'
+import Traffictoast from '../components/traffictoast'
 
 
 const style = {
@@ -12,12 +13,16 @@ const style = {
 
 export default function Home() {
   return (
-    
-
+    <>
+      <Traffictoast/>
+      {/* <div className='w-full bg-white h-12 text-center font-medium p-3 text-2xl'>
+            BlockRide
+        </div>
+    <div className={style.wrapper}>
       <div className={style.main}>
         <Map />
       </div>
-     
-    
+      </div> */}
+      </>
   )
 }
