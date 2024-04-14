@@ -7,7 +7,7 @@ import StarIcon from "@mui/icons-material/Star";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Slide from "@mui/material/Slide";
-import { ethers } from "ethers"; // Import ethers.js
+
 
 const labels = {
   0.5: "Useless",
