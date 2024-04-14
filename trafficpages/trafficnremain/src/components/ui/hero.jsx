@@ -103,12 +103,23 @@ const Hero = ({
         }}
       ></canvas>
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-        <h1 className="lg:text-6xl md:text-5xl sm:text-4xl text-2xl font-bold text-white text-center">
+        <h1 className="lg:text-6xl md:text-5xl sm:text-4xl text-2xl font-bold text-black text-center font-sans">
           Welcome to block-ride
         </h1>
-        <p className="lg:text-lg md:text-md sm:text-sm text-xs text-white text-center mt-4">
+        <p className="lg:text-lg md:text-md sm:text-sm text-xs text-black text-center mt-4">
           Experience the future of decentralized transportation
         </p>
+        <div className="flex items-center justify-center mt-16">
+          <a
+            className="mt-8 mr-4 bg-white font-bold bg-opacity-50 text-black px-4 py-2 rounded-lg text-sm backdrop-blur-md"
+            href="https://block-ride.vercel.app"
+          >
+            Get Started
+          </a>
+          <button className="mt-8 bg-white font-bold bg-opacity-50 text-black px-4 py-2 rounded-lg text-sm backdrop-blur-md">
+            Download our App
+          </button>
+        </div>
       </div>
       <div className={cn("relative z-20", className)} {...props}>
         {children}
