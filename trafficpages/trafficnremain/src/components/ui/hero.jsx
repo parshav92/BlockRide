@@ -46,11 +46,11 @@ const Hero = ({
   };
 
   const waveColors = colors || [
-    "#38bdf8",
-    "#818cf8",
-    "#c084fc",
-    "#e879f9",
-    "#22d3ee",
+    "#6c757d",
+    "#495057",
+    "#343a40",
+    "#212529",
+    "#ced4da",
   ];
   const drawWave = (n) => {
     nt += getSpeed();
@@ -93,7 +93,7 @@ const Hero = ({
   }, []);
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center relative">
+    <div className="h-screen flex flex-col items-center justify-center relative bg-gradient-to-b from-gray-500 to-neutral-900">
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}
@@ -103,20 +103,23 @@ const Hero = ({
         }}
       ></canvas>
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-        <h1 className="lg:text-6xl md:text-5xl sm:text-4xl text-2xl font-bold text-black text-center font-sans">
-          Welcome to block-ride
-        </h1>
-        <p className="lg:text-lg md:text-md sm:text-sm text-xs text-black text-center mt-4">
+        <div className="flex flex-row gap-2 md:gap-4">
+          <img src="logo.svg" className="" />
+          <h1 className="lg:text-6xl md:text-5xl text-4xl font-semibold text-gray-900 text-center mt-3 md:mt-1">
+            BLOCKRIDE
+          </h1>
+        </div>
+        <p className="lg:text-lg md:text-md sm:text-sm text-lg text-gray-900 text-center mt-4">
           Experience the future of decentralized transportation
         </p>
-        <div className="flex items-center justify-center mt-16">
+        <div className="flex items-center justify-center md:mt-16 flex-col md:flex-row">
           <a
-            className="mt-8 mr-4 bg-white font-bold bg-opacity-50 text-black px-4 py-2 rounded-lg text-sm backdrop-blur-md"
+            className="mt-8 mr-4 border-2 border-gray-600 font-semibold text-gray-900 px-4 py-3 rounded-md text-xl md:text-lg"
             href="https://block-ride.vercel.app"
           >
             Get Started
           </a>
-          <button className="mt-8 bg-white font-bold bg-opacity-50 text-black px-4 py-2 rounded-lg text-sm backdrop-blur-md">
+          <button className="mt-8 bg-gray-900 font-semibold text-gray-200 px-4 py-3 rounded-md text-xl md:text-lg">
             Download our App
           </button>
         </div>
