@@ -15,11 +15,7 @@
     },
   }
 
-
-  const token = process.env.NEXT_PUBLIC_MAP_API;
-  // console.log(token)
-
-  mapboxgl.accessToken=process.env.NEXT_PUBLIC_MAP_API;
+mapboxgl.accessToken = process.env.MAP_API;
 
 
   const Map = () => {
