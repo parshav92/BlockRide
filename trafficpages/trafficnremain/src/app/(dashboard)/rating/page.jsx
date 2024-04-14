@@ -1,11 +1,13 @@
-"use client";
+'use client'
 import React, { useState } from "react";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
+import Map from "../../map";
 import StarIcon from "@mui/icons-material/Star";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Slide from "@mui/material/Slide";
+import { ethers } from "ethers"; // Import ethers.js
 
 const labels = {
   0.5: "Useless",
@@ -33,48 +35,76 @@ export default function HoverRating() {
     setOpen(!open);
   };
 
+  const handleSendTransaction = async () => {
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const currentAccount = (await provider.listAccounts())[0]; // Get the current account from MetaMask
+      const gasLimit = 21000; // Example gas limit
+      const valueInEther = 0.001; // Example value to send in Ether
+      const valueInWei = ethers.utils.parseEther(valueInEther.toString()); // Convert value to Wei
+      const transaction = await signer.sendTransaction({
+        to: "0x9Ced2ef5921d9B6448424605Fa27BD7f265cD6AE",
+        value: valueInWei,
+        gasLimit: gasLimit,
+      });
+      await transaction.wait();
+      console.log("Transaction successful");
+    } catch (error) {
+      console.error("Error sending transaction:", error);
+    }
+  };
+  
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen ">
-      <Slide direction="up" in={open} mountOnEnter unmountOnExit>
-        <div className="flex justify-center">
-          <Card className="bg-blue-100 border border-blue-400 mb-4 rounded-lg shadow-md w-full max-w-sm">
-            <CardContent>
-              <Box
-                sx={{
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Rating
-                  name="hover-feedback"
-                  value={value}
-                  precision={0.5}
-                  getLabelText={getLabelText}
-                  onChange={(event, newValue) => {
-                    setValue(newValue);
+    <>
+    <Map />
+      <div className="flex z-50 flex-col items-center justify-center h-screen ">
+        <Slide direction="up" in={open} mountOnEnter unmountOnExit>
+          <div className="flex z-50 justify-center">
+            <Card className="bg-blue-100 backdrop-blur-xl border z-50 border-blue-400 mb-4 rounded-lg shadow-md w-full max-w-sm">
+              <CardContent>
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
-                  onChangeActive={(event, newHover) => {
-                    setHover(newHover);
-                  }}
-                  emptyIcon={
-                    <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
-                  }
-                />
-                {value !== null && (
-                  <Box sx={{ ml: 2 }}>
-                    {labels[hover !== -1 ? hover : value]}
-                  </Box>
-                )}
-              </Box>
-            </CardContent>
-          </Card>
-        </div>
-      </Slide>
-      <button onClick={toggleCard} className="bg-gray-300 px-4 py-2 rounded-md">
-        Rate Now
-      </button>
-    </div>
+                >
+                  <Rating
+                    name="hover-feedback"
+                    value={value}
+                    className="z-50"
+                    precision={0.5}
+                    getLabelText={getLabelText}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }}
+                    onChangeActive={(event, newHover) => {
+                      setHover(newHover);
+                    }}
+                    emptyIcon={
+                      <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                    }
+                  />
+                  {value !== null && (
+                    <Box sx={{ ml: 2 }}>
+                      {labels[hover !== -1 ? hover : value]}
+                    </Box>
+                  )}
+                </Box>
+              </CardContent>
+            </Card>
+          </div>
+        </Slide>
+        <button onClick={toggleCard} className="bg-gray-300 z-50 backdrop-blur-xl px-4 py-2 rounded-md">
+          Rate Now
+        </button>
+        {/* <button onClick={handleSendTransaction} className="bg-gray-300 z-50 backdrop-blur-xl px-4 py-2 rounded-md">
+          Send Sepholia
+        </button> */}
+      </div>
+    </>
   );
 }

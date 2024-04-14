@@ -2,6 +2,7 @@ import React from "react";
 import History from "../history/page"
 import { IoSearch } from "react-icons/io5";
 import { PiWallet } from "react-icons/pi";
+import Navbar from "../../components/navbar";
 import { VscAccount } from "react-icons/vsc";
 import { LuMessageSquare } from "react-icons/lu";
 import { GrTrophy } from "react-icons/gr";
@@ -10,6 +11,7 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 const page = () => {
   return (
     <>
+    <Navbar />
       <div className="bg-white w-screen h-screen">
         <div className="flex flex-col px-4">
           <div className="flex flex-col p-10">
@@ -72,12 +74,7 @@ const page = () => {
             </div>
           </div>
           {/* <History /> */}
-          <div className="flex gap-2 p-10">
-            <div>
-              <RiLogoutBoxRLine className="w-7 h-7" />
-            </div>
-            <div className="text-xl"> Logout</div>
-          </div>
+          
         </div>
       </div>
     </>
