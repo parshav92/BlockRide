@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
+import Traffictoast from '../components/TrafficToast';
 import Navbar from '../components/Navbar';
 // import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 // import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
@@ -139,7 +140,7 @@ const Map = () => {
 
   return (
     <>
-  <a href='http://localhost:3001/driverprofile'>  <Navbar/></a>
+  <a href='https://block-ride14.vercel.app/driverprofile'>  <Navbar/></a>
     <div className={style.wrapper}>
       <div id='map' style={{ width: '150%', height: '150vh', position: 'relative' }}>
         <div className="traffic-info-box" style={{ ...style.trafficInfoBox, zIndex: 1000 }}>
@@ -147,9 +148,13 @@ const Map = () => {
           <p><strong>Start:</strong> {pic}</p>
           <p><strong>End:</strong> {drop}</p>
           <p><strong>Traffic Type:</strong> Moderate</p>
+          <Traffictoast />
         </div>
       </div>
+ 
     </div>
+
+
     </>
   );
 };

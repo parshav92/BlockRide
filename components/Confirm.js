@@ -87,7 +87,8 @@ const Confirm = () => {
   useEffect(() => {
     if (bookingConfirmed) {
       // Display the alert
-      alert('Booking confirmed. Please rate the Uber driver and route.')
+      alert('Booking confirmed. Please rate the Uber driver .')
+      window.location.href = 'https://block-ride14.vercel.app/rating';
       // Reset the booking confirmation state after displaying the alert
       setBookingConfirmed(false)
     }

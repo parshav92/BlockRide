@@ -52,25 +52,30 @@ const TransactionCard = ({ address }) => {
     }, [address]);
   return (
     <div className="transaction-card">
-      <h2>Transaction History</h2>
-      {/* {loading && <p>Loading...</p>} */}
-      {error && <p>Error: {error}</p>}
-      { !error && transactions.length === 0 && <p>No transactions found.</p>}
-      { !error && transactions.length > 0 && (
-        <div className="transaction-list">
-          {transactions.map(transaction => (
-            <div key={transaction.hash} className="transaction-item">
-              <p><strong>Transaction Hash:</strong> {transaction.hash}</p>
+    <h2 className='flex justify-center md:text-5xl text-3xl my-10'>Transaction History</h2>
+    {/* {loading && <p>Loading...</p>} */}
+    {error && <p>Error: {error}</p>}
+    { !error && transactions.length === 0 && <p>No transactions found.</p>}
+    { !error && transactions.length > 0 && (
+      <div className="transaction-list">
+        {transactions.map(transaction => (
+          <div key={transaction.hash} className="transaction-item">
+            <div className="transaction-card">
+              <h3>Transaction Details</h3>
+            <div className='text-xs'>  <p className="transaction-hash"><strong>Transaction Hash:</strong> {transaction.hash}</p>
+
               <p><strong>Block Number:</strong> {transaction.blockNumber}</p>
               <p><strong>Timestamp:</strong> {new Date(transaction.timeStamp * 1000).toLocaleString()}</p>
               <p><strong>From:</strong> {transaction.from}</p>
               <p><strong>To:</strong> {transaction.to}</p>
               <p><strong>Value:</strong> {transaction.value} Wei</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+            </div> </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+  
   );
 };
 

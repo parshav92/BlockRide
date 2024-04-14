@@ -1,5 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
+.transaction-container {
+    padding: 20px;
+  }
+  
+  .transaction-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .transaction-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .transaction-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  .transaction-hash {
+    word-wrap: break-word;
+  }
+  
+  
+  .transaction-card-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .transaction-card p {
+    margin: 5px 0;
+  }
+  
