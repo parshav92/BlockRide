@@ -36,14 +36,14 @@ const page = () => {
                 <div>
                   <GrTrophy className="w-5 h-5" />
                 </div>
-                <div className="px-2 text-base">Rewards</div>
+                <a href="/rewards">   <div className="px-2 text-base">Rewards</div> </a>
               </div>
               <div className="flex bg-gray-100  w-80 mt-4 mx-6 h-10 items-center p-4 rounded-xl">
-                <div>
+        <div>
                   <CiStar className="w-6 h-6" />
                 </div>
-                <div className="px-1 text-base">Your Reviews</div>
-              </div>
+                <a href="/history"> <div className="px-1 text-base">Your Reviews</div> </a>
+              </div>     
             </div>
             <div className="flex flex-col  ml-6 md:ml-0">
               <div className="bg-gray-100 w-full h-10 rounded-xl p-2 text-base px-4">

@@ -2,8 +2,8 @@ import React from 'react'
 
 const Traffictoast = () => {
   return (
-    <div className='w-screen h-screen bg-purple-500 p-10'>
-        <div className='bg-white w-64  rounded-xl'>
+    <div className=' flex justify-center backdrop-blur-xl '>
+        <div className='backdrop-blur-xl border-1 border-black bg-white w-64  rounded-xl'>
             <div className='text-black p-4 font-semibold'>
                 Any Traffic Updates?
             </div>
