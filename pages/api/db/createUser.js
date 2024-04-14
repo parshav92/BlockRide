@@ -10,7 +10,7 @@ const createUserInSanity = async (req, res) => {
     }
 
     await client.createIfNotExists(userDoc)
-
+    localStorage.setItem('userWalletAddress', req.body.userWalletAddress);
     res.status(200).send({ message: 'success' })
   } catch (error) {
     res.status(500).send({ message: 'error', data: error.message })
